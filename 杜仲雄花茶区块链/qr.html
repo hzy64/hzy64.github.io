@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>生成二维码</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f7f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c5530;
+            margin-bottom: 2rem;
+        }
+        #qrcode {
+            margin: 2rem 0;
+        }
+        p {
+            color: #666;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>杜仲雄花茶区块链溯源系统</h1>
+        <div id="qrcode"></div>
+        <p>扫描上方二维码访问溯源系统</p>
+    </div>
+    <script>
+        window.onload = function() {
+            var qr = qrcode(0, 'M');
+            var url = 'http://10.16.53.190:8000/index.html';
+            qr.addData(url);
+            qr.make();
+            document.getElementById('qrcode').innerHTML = qr.createImgTag(5);
+        };
+    </script>
+</body>
+</html> 
